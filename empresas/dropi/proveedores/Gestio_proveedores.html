@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestión de Proveedores</title>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fc;
+      }
+
+      .container-box {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .table-bordered th,
+      .table-bordered td {
+        border: 1px solid #dee2e6 !important;
+      }
+      .navigation {
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .navigation .page-link:hover {
+        background-color: #84bef9;
+      }
+      .top-controls {
+        display: flex;
+
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .top-controls .form-control,
+      .top-controls .form-select {
+        max-width: 250px;
+      }
+      .search {
+        width: 300px;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto; /* Lo empuja hacia la derecha */
+        margin-top: -38px;
+      }
+      /* ✅ Responsive para pantallas menores a 768px (Tablets y móviles) */
+      @media (max-width: 768px) {
+        .search {
+          width: 100%; /* Ocupará todo el ancho disponible */
+          justify-content: center; /* Centra el contenido */
+          margin-top: 10px; /* Ajusta el margen superior */
+        }
+
+        .search input {
+          width: 70%; /* Reduce el tamaño del input */
+        }
+
+        .search button {
+          width: 25%; /* Ajusta el tamaño del botón */
+        }
+      }
+
+      /* ✅ Responsive para pantallas menores a 480px (Móviles pequeños) */
+      @media (max-width: 480px) {
+        .search {
+          flex-direction: column; /* Apila el input y el botón */
+          align-items: center;
+        }
+
+        .search input {
+          width: 90%;
+          margin-bottom: 5px;
+        }
+
+        .search button {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="page-top">
+    <!-- Contenedor principal -->
+    <div class="container mt-4">
+      <div class="container-box">
+        <!-- Título -->
+        <h2 class="text-dark text-center">Gestión de Proveedores</h2>
+        <br />
+
+        <!-- Controles superiores -->
+        <div class="top-controls mt-3">
+          <button class="btn btn-primary" id="botonAgregarProveedor">
+            <i class="fa-solid fa-plus"></i> Agregar Proveedor
+          </button>
+
+          <select id="filtroUbicacion" class="form-select">
+            <option value="">Filtrar por ubicación</option>
+            <option value="Pradera">Pradera</option>
+            <option value="Cali">Cali</option>
+            <option value="Bogotá">Bogotá</option>
+          </select>
+        </div>
+        <div class="search">
+          <input
+            type="text"
+            id="buscarProveedor"
+            class="form-control"
+            placeholder="Buscar proveedor..."
+          />
+          <button type="button" class="btn btn-primary">Buscar</button>
+        </div>
+
+        <!-- Tabla de Proveedores -->
+        <div class="table-responsive mt-3">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>NIT</th>
+                <th>Nombre Empresa</th>
+                <th>Numero de Telefono</th>
+                <th>Correo Electronico</th>
+                <th>Ubicación</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tablaProveedores">
+              <tr>
+                <td>102</td>
+                <td>102903A</td>
+                <td>Santa Anita</td>
+                <td>3226590659</td>
+
+                <td>santaanita@gmail.com</td>
+                <td>Pradera</td>
+                <td>
+                  <button class="btn btn-info">
+                    <i class="fa-solid fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>102903B</td>
+                <td>Mercapava S.A</td>
+                <td>3226590659</td>
+                <td>mercapava@gmail.com</td>
+                <td>Pradera</td>
+
+                <td>
+                  <button class="btn btn-info">
+                    <i class="fa-solid fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>102903B</td>
+                <td>Mercapava S.A</td>
+                <td>3226590659</td>
+                <td>mercapava@gmail.com</td>
+                <td>Pradera</td>
+
+                <td>
+                  <button class="btn btn-info">
+                    <i class="fa-solid fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>102903B</td>
+                <td>Mercapava S.A</td>
+                <td>3226590659</td>
+                <td>mercapava@gmail.com</td>
+                <td>Pradera</td>
+
+                <td>
+                  <button class="btn btn-info">
+                    <i class="fa-solid fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>102903B</td>
+                <td>Mercapava S.A</td>
+                <td>3226590659</td>
+                <td>mercapava@gmail.com</td>
+                <td>Pradera</td>
+
+                <td>
+                  <button class="btn btn-info">
+                    <i class="fa-solid fa-edit"></i> Editar
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Paginación -->
+        <div class="navigation">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#">Anterior</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="agregarProveedorModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar Proveedor</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formAgregarProveedor">
+              <div class="mb-3">
+                <label class="form-label">NIT</label>
+                <input type="text" class="form-control" name="nit" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Nombre de la Empresa</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nombre_empresa"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="telefono"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Correo</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="correo"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Dirección o Ubicación</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="direccion_ubicacion"
+                  required
+                />
+              </div>
+
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document
+        .getElementById("botonAgregarProveedor")
+        .addEventListener("click", function () {
+          var agregarProveedorModal = new bootstrap.Modal(
+            document.getElementById("agregarProveedorModal")
+          );
+          agregarProveedorModal.show();
+        });
+
+      // Funcionalidad de búsqueda
+      document
+        .getElementById("buscarProveedor")
+        .addEventListener("input", function () {
+          let filter = this.value.toLowerCase();
+          let rows = document.querySelectorAll("#tablaProveedores tr");
+
+          rows.forEach((row) => {
+            let text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+          });
+        });
+
+      // Funcionalidad de filtrado por ubicación
+      document
+        .getElementById("filtroUbicacion")
+        .addEventListener("change", function () {
+          let filtro = this.value.toLowerCase();
+          let rows = document.querySelectorAll("#tablaProveedores tr");
+
+          rows.forEach((row) => {
+            let ubicacion = row.children[3].innerText.toLowerCase();
+            row.style.display =
+              filtro === "" || ubicacion.includes(filtro) ? "" : "none";
+          });
+        });
+    </script>
+  </body>
+</html>

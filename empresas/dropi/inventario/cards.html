@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../../assets/fontawesome-free-6.7.2-web/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+      }
+      .navbar {
+        background-color: #343a40 !important;
+      }
+      .navbar-brand {
+        color: white !important;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .dashboard-container {
+        padding: 40px 20px;
+      }
+      .card {
+        border-radius: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+        overflow: hidden;
+        background-color: #fff;
+        text-align: center;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3);
+      }
+      .card img {
+        height: 180px; /* Ajuste de tamaño */
+        width: 100%;
+        object-fit: contain; /* Mantiene la proporción sin cortar */
+        background-color: #f8f8f8; /* Fondo neutro */
+      }
+      .card-body {
+        padding: 20px;
+      }
+      .btn-custom {
+        width: 100%;
+        font-weight: bold;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SISTEMA DE GESTION</a>
+      </div>
+    </nav>
+    <div class="container dashboard-container">
+      <div class="row g-4">
+        <div class="col-md-4 col-sm-12">
+          <div class="card shadow-lg">
+            <img src="../../../assets/images/inventario.png" alt="Inventario" />
+            <div class="card-body">
+              <h5 class="card-title">Inventario</h5>
+              <a
+                href="../inventario/index.html"
+                class="btn btn-primary btn-custom"
+                >Entrar</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="card shadow-lg">
+            <img src="../../../assets/images/usuarios.jpg" alt="Usuarios" />
+            <div class="card-body">
+              <h5 class="card-title">Usuarios</h5>
+              <a
+                href="../usuarios/colaboradores.html"
+                class="btn btn-success btn-custom"
+                >Entrar</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="card shadow-lg">
+            <img
+              src="../../../assets/images/proveedores.png"
+              alt="Proveedores"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Proveedores</h5>
+              <a
+                href="../proveedores/Gestio_proveedores.html"
+                class="btn btn-warning btn-custom"
+                >Entrar</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="card shadow-lg">
+            <img
+              src="../../../assets/images/realizar_acta.png"
+              alt="Realizar Acta"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Realizar Acta</h5>
+              <a href="#" class="btn btn-danger btn-custom">Entrar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="card shadow-lg">
+            <img
+              src="../../../assets/images/historial.png"
+              alt="Historial de Actas"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Historial de Actas</h5>
+              <a href="#" class="btn btn-secondary btn-custom">Entrar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

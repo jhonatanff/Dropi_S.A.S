@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido</title>
+
+    <!-- Preload para mejorar rendimiento -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://source.unsplash.com/1600x900/?technology,abstract"
+    />
+
+    <!-- Tailwind cargado correctamente -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: url("https://source.unsplash.com/1600x900/?technology,abstract")
+          no-repeat center center/cover;
+        background-attachment: fixed;
+        height: 100vh;
+      }
+      .overlay {
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .image-container {
+        border: 5px solid #ffcc00;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+        transition: transform 0.3s ease-in-out;
+        animation: float 3s infinite alternate ease-in-out;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0) scale(1);
+        }
+        100% {
+          transform: translateY(-10px) scale(1.05);
+        }
+      }
+    </style>
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <div class="overlay w-full h-full absolute"></div>
+    <div
+      class="relative flex items-center justify-between w-3/4 bg-black bg-opacity-50 rounded-lg shadow-lg p-10"
+    >
+      <div class="text-white text-left w-1/2">
+        <h1 id="welcome-text" class="text-5xl font-bold mb-6">¡Bienvenido!</h1>
+        <p class="text-lg mb-6">Explora y disfruta de nuestra plataforma</p>
+        <div class="flex gap-4">
+          <a href="./login.html">
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Iniciar Sesión
+            </button>
+          </a>
+          <a href="./register.html">
+            <button
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Registrarse
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="w-1/2 flex justify-center">
+        <div class="image-container w-80">
+          <img
+            src="https://dropi.co/wp-content/uploads/2023/05/fullfilment_1.png"
+            alt="Imagen llamativa"
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts cargados al final para mejor rendimiento -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.12.16/framer-motion.umd.min.js"
+      defer
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.FramerMotion) {
+          const { motion } = window.FramerMotion;
+          motion.animate(
+            "#welcome-text",
+            { opacity: [0, 1], y: [-50, 0] },
+            { duration: 1 }
+          );
+        } else {
+          console.error("Framer Motion no se cargó correctamente");
+        }
+      });
+    </script>
+  </body>
+</html>
